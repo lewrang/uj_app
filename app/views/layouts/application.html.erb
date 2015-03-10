@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sabinka</title>
+  <title>UJ</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
-  </header>
-<%= yield %>
+  <h1>Uj Website</h1>
+</header>
 
+<nav>
+<ul>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Articles", articles_path %></a></li>
+  <li><%= link_to "New article", new_article_path %></li>
+</ul>
+</nav>
+
+<section>
+<%= yield %>
+</section>
 </body>
 </html>
