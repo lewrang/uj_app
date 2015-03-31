@@ -7,7 +7,10 @@
     %a.navbar-brand{:href => "#"} UjApp
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
-        %li= link_to "Home", "/path1"
-        %li= link_to "Articles", "/path2"
-        %li= link_to "New Article", "/path3"
-        %li= link_to "Login", "/path3"
+        %li= link_to "Home", root_path
+        %li= link_to "Articles", articles_path
+        %li= link_to "New Article", new_article_path
+        - if current_user
+          %li= link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          %li= link_to "Login", new_user_session_path

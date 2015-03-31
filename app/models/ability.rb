@@ -8,6 +8,7 @@ class Ability
        if user.admin?
          can :manage, :all
        elsif user.moderator?
+         p "-------- DUPA"
          can :manage, Article
          can :create, Comment
          can :manage, Comment do |comment|
