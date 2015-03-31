@@ -7,22 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <h1>Uj Website</h1>
-</header>
+  <header>
+    <h1>Uj Website</h1>
+  </header>
 
-<nav>
-<ul>
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Articles", articles_path %></a></li>
-  <li><%= link_to "New article", new_article_path %></li>
-</ul>
-</nav>
+  <nav>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Articles", articles_path %></a></li>
+  <% if can? :create, @article %>
+        <li><%= link_to "New article", new_article_path %></li>
+      <% end %>
+      <% if  user_signed_in? %>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
 
-<section>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
-</section>
+  <section>
+    <p class="notice"><%= flash[:notice] %></p>
+    <p class="alert"><%= flash[:alert] %></p>
+    
+   <% if user_signed_in? %>
+    <%= 'Jestes zalogowany jako: '+ current_user.full_name %>
+    <br/>
+    <% if current_user.admin? %>
+    <%= 'Witaj czcigodny adminie' %>
+    <% elsif current_user.moderator? %>
+    <%= 'Siema moderatorze' %>
+    <% else %>
+    <%= 'Zwykły nedzny user' %>
+    <% end %>
+   <% end %>
+    
+   <%= yield %>
+    
+  </section>
+
 </body>
 </html>
