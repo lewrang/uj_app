@@ -7,6 +7,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-family: 'Open Sans', sans-serif;
 }
 footer {
   position: absolute;
@@ -23,6 +24,27 @@ footer {
 /* Not required for template or sticky footer method. */
 
 
-.container .text-muted {
+footer .container .text-muted {
   margin: 20px 0;
+  text-align: center;
+  
+}
+
+a.navbar-brand {
+  font-family: 'Pacifico', cursive;
+}
+.sidebar-title {
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+.sidebar-content {
+  font-size: 18px;
+  text-align: justify;
+}
+.links {
+  margin-top: 40px;
+}
+.comments {
+  margin-bottom: 30px;
 }

@@ -1,11 +1,12 @@
-%p
-  %strong Commenter:
-  = comment.commenter
-%p
-  %strong Comment:
-  = comment.body
-- if can? :destroy, @comment
+.comments
   %p
-    = link_to 'Destroy Comment', [comment.article, comment], |
-      method: :delete,                                       |
-      data: { confirm: 'Are you sure?' }                     |
+    %strong Commenter:
+    = comment.commenter
+  %p
+    %strong Comment:
+    = comment.body
+  - if can? :destroy, @comment
+    %p
+      = link_to 'Destroy Comment', [comment.article, comment], |
+        method: :delete,                                       |
+        data: { confirm: 'Are you sure?' }                     |
