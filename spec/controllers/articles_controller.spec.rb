@@ -1,11 +1,12 @@
 require "rails_helper"
 
-describe WelcomeController do
+describe ArticlesController do
   describe 'index' do
     it 'return home page' do
       get :index
       
       expect(response).to have_http_status(:success)
+      expect(assigns(:articles).length).to eq 0
     end
   end
 end
