@@ -56,6 +56,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'simplecov', :require => false
-  
+  gem "capybara-webkit"
+  gem "selenium-webdriver"
 end
 
