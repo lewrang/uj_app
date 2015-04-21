@@ -23,4 +23,15 @@ describe ArticlesController do
     end
   end
   
+  describe 'new' do
+    it 'return a new article' do
+      @request.env["desive.mapping"] = Devise.mappings[:admin]
+      sign_in FactoryGirl.create(:admin)
+      get :new
+      
+      expect(response).to have_http_status(:success)
+      expect(assigns(:article)).not_to eq nil
+    end
+  end
+  
 end
